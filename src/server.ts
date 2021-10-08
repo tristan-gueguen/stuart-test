@@ -1,13 +1,10 @@
-import http from "http";
-import express, { Express } from "express";
-import routes from "./routes/couriers";
+import express from "express";
+import { couriersRouter } from "./routes/couriers";
 
-const app: Express = express();
+const app = express();
 
 app.use(express.json());
+app.use("/couriers", couriersRouter);
 
-app.use("/", routes);
-
-const httpServer = http.createServer(app);
 const PORT: any = process.env.PORT || 5050;
-httpServer.listen(PORT, () => console.log(`Server running on port=${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port=${PORT}`));

@@ -1,9 +1,19 @@
 import express from "express";
-import controller from "../controllers/couriers";
+import {
+  getAll,
+  getById,
+  create,
+  remove,
+  getCandidates,
+} from "../controllers/couriers";
 
-const router = express.Router();
+export const couriersRouter = express.Router();
 
-router.get("/couriers", controller.getAll);
-router.get("/couriers/:id", controller.getById);
+couriersRouter.post("/lookup", getCandidates);
 
-export = router;
+couriersRouter.get("", getAll);
+couriersRouter.get("/:id", getById);
+
+couriersRouter.post("", create);
+
+couriersRouter.delete("/:id", remove);

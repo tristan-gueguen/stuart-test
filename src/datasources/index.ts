@@ -17,12 +17,11 @@ export class MyDb {
     return this._instance || (this._instance = new this());
   }
 
-  getById(id: number) {
+  getById(id: number): Courier | undefined {
     return this.couriers.get(id);
   }
 
   getAll(): Courier[] {
-    console.log(this.couriers);
     return Array.from(this.couriers.values());
   }
 
@@ -30,7 +29,11 @@ export class MyDb {
     this.couriers.set(courier.id, courier);
   }
 
-  exists(id: number) {
+  exists(id: number): boolean {
     return this.couriers.has(id);
+  }
+
+  remove(id: number): boolean {
+    return this.couriers.delete(id);
   }
 }

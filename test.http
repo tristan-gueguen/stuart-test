@@ -1,5 +1,25 @@
-###
+### Get All Couriers
 GET http://localhost:5050/couriers HTTP/1.1
 
-###
+### Get a Single Courier
 GET http://localhost:5050/couriers/2 HTTP/1.1
+
+### Create a Courier
+POST http://localhost:5050/couriers HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1234,
+    "max_capacity": 45
+}
+
+### Delete a Courier
+DELETE http://localhost:5050/couriers/1234 HTTP/1.1
+
+### Get Candidates Couriers
+POST http://localhost:5050/couriers/lookup HTTP/1.1
+content-type: application/json
+
+{
+    "capacity_required": 62
+}
