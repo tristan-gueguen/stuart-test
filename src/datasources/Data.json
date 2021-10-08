@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "max_capacity": 150 
+    },
+    {
+        "id": 1,
+        "max_capacity": 45 
+    },
+    {
+        "id": 2,
+        "max_capacity": 75 
+    }
+]
