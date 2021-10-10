@@ -12,3 +12,7 @@ It should be running on [localhost:5050](http://localhost:5050/).
 ## Try it
 
 You can run example queries located in _test.http_ file with the **REST Client VSCode** extension .
+
+## Run tests
+
+`npm test`will run mocha on the tests folder
