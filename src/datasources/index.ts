@@ -1,14 +1,17 @@
-import { Courier } from "../models/couriers";
+import { Courier, IDCourier } from "../models/couriers";
 const initData: Courier[] = require("./Data.json");
 
 export class MyDb {
-  private couriers: Map<number, Courier>;
+  private couriers: Map<IDCourier, Courier>;
   private static _instance: MyDb;
 
   private constructor() {
     this.couriers = new Map();
     initData.map(({ id, max_capacity }: Courier) => {
-      this.couriers.set(id, new Courier(id, max_capacity));
+      this.couriers.set(id, {
+        id,
+        max_capacity,
+      });
     });
     console.log("Database is ready!");
   }
@@ -17,7 +20,7 @@ export class MyDb {
     return this._instance || (this._instance = new this());
   }
 
-  getById(id: number): Courier | undefined {
+  getById(id: IDCourier): Courier | undefined {
     return this.couriers.get(id);
   }
 
@@ -29,11 +32,11 @@ export class MyDb {
     this.couriers.set(courier.id, courier);
   }
 
-  exists(id: number): boolean {
+  exists(id: IDCourier): boolean {
     return this.couriers.has(id);
   }
 
-  remove(id: number): boolean {
+  remove(id: IDCourier): boolean {
     return this.couriers.delete(id);
   }
 }
