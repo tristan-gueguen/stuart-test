@@ -9,8 +9,8 @@ POST http://localhost:5050/couriers HTTP/1.1
 content-type: application/json
 
 {
-    "id": 1234,
-    "max_capacity": 45
+    "id": 123456,
+    "max_capacity": 62
 }
 
 ### Delete a Courier
