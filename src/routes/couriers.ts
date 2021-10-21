@@ -7,8 +7,7 @@ import {
   getCandidates,
 } from "../controllers/couriers";
 
-// Let's dispatch request to corresponding controllers methods
-
+// Let's dispatch requests to corresponding controllers methods
 export const couriersRouter = express.Router();
 
 couriersRouter.post("/lookup", getCandidates);
