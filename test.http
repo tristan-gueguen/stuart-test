@@ -10,7 +10,15 @@ content-type: application/json
 
 {
     "id": 123456,
-    "max_capacity": 62
+    "max_capacity": 75
+}
+
+### Update a Courier
+PUT http://localhost:5050/couriers/123456 HTTP/1.1
+content-type: application/json
+
+{
+    "max_capacity": 75
 }
 
 ### Delete a Courier

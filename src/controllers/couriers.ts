@@ -43,6 +43,29 @@ export const create = async (req: Request, res: Response) => {
   return res.status(200).json(newCourier);
 };
 
+//Update a courier capacity
+export const update = async (req: Request, res: Response) => {
+  if (!req.body || !req.body.max_capacity) {
+    res.status(204).send("id and max_capacity should be provided");
+    return;
+  }
+  const { id } = req.params;
+  const { max_capacity } = req.body;
+  const courierId: IDCourier = parseInt(id);
+
+  //check if courier exists
+  if (!db.exists(courierId)) {
+    return res.status(404).send(`courier with id=${courierId} does not exist!`);
+  }
+
+  const updatedCourier: Courier = {
+    id: courierId,
+    max_capacity,
+  };
+  db.add(updatedCourier);
+  return res.status(200).json(updatedCourier);
+};
+
 // Delete a courier
 export const remove = async (req: Request, res: Response) => {
   const { id } = req.params;

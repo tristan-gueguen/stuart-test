@@ -3,6 +3,7 @@ import {
   getAll,
   getById,
   create,
+  update,
   remove,
   getCandidates,
 } from "../controllers/couriers";
@@ -16,5 +17,6 @@ couriersRouter.get("", getAll);
 couriersRouter.get("/:id", getById);
 
 couriersRouter.post("", create);
+couriersRouter.put("/:id", update);
 
 couriersRouter.delete("/:id", remove);
