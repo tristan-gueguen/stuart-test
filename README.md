@@ -92,8 +92,9 @@ I decided to only do unit tests on the `getIdsToScore` function of the Engine fo
 ## Next Steps
 
 - Connect to a database using an ORM (sequelize for example and a MySQL database)
-- Add authentication (with a JWT for instance)
+- Add authentication (using JWT for instance)
 - Develop the Courier model. Couriers could have different speeds, vehicule types, preferred areas, preferred hours and so on.
 - With a more complex Courier model, we could have more complex queries. The Engine would need to understand how to read these more complex queries and how to score couriers based on the parameters.
 - We could have a swagger docs for our API.
 - Integration tests
+- Prepare for production: add a `npm build` script and a `npm run` script 
