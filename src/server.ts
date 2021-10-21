@@ -2,6 +2,9 @@ import express from "express";
 import { couriersRouter } from "./routes/couriers";
 
 import morgan from "morgan";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
